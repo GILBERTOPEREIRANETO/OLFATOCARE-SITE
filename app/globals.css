@@ -353,3 +353,292 @@ footer{background:#052b58;color:#fff;padding:30px 0}
   .container{width:min(100% - 22px,1260px)}
 }
 
+/* ===== V2.4: refinamento mobile-first com desktop preservado ===== */
+@media(max-width:650px){
+
+  /* Header mais compacto */
+  .site-header{
+    box-shadow:0 2px 10px rgba(6,47,99,.10);
+  }
+  .nav{
+    min-height:64px;
+    padding:5px 0;
+  }
+  .brand{width:132px}
+  .mobile-patient{
+    min-height:36px;
+    padding:0 9px;
+    font-size:10px;
+    border-radius:8px;
+  }
+  .mobile-menu summary{
+    width:36px;
+    height:36px;
+    border-radius:8px;
+  }
+  .mobile-menu nav{
+    min-width:230px;
+    top:44px;
+  }
+
+  /* Hero: compacto, sem parecer banner gigante */
+  .hero-copy{
+    padding:34px 0 18px;
+  }
+  .hero h1{
+    font-size:clamp(32px,9.5vw,40px);
+    line-height:1.02;
+    letter-spacing:-.035em;
+  }
+  .kicker{
+    margin-bottom:8px;
+    font-size:11px;
+  }
+  .short-line{
+    width:48px;
+    height:3px;
+    margin:15px 0;
+  }
+  .hero-text{
+    font-size:15px;
+    line-height:1.48;
+    max-width:none;
+  }
+
+  /* Quatro pilares em faixa compacta */
+  .pillars-inline{
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    margin:20px 0 18px;
+  }
+  .pillars-inline>div{
+    padding:0 5px;
+    border-right:1px solid #dfe6ee !important;
+  }
+  .pillars-inline>div:last-child{
+    border-right:0 !important;
+  }
+  .pillar-icon{
+    font-size:18px;
+    margin-bottom:3px;
+  }
+  .pillars-inline strong{
+    font-size:11px;
+  }
+
+  .hero-actions{
+    gap:9px;
+  }
+  .button{
+    min-height:44px;
+    font-size:12px;
+    border-radius:8px;
+  }
+
+  /* Foto abaixo do CTA, mais baixa e limpa */
+  .hero-photo{
+    min-height:245px;
+    margin:6px -14px 0;
+  }
+  .hero-photo img{
+    object-position:center 30%;
+  }
+  .hero-photo::before{
+    height:45px;
+  }
+
+  /* Seções mais curtas */
+  .section{
+    padding:50px 0;
+  }
+  .section-title{
+    margin-bottom:28px;
+  }
+  .section-title h2,
+  .tracking-copy h2,
+  .about-grid h2,
+  .cta h2{
+    font-size:clamp(26px,7.6vw,33px);
+    line-height:1.08;
+  }
+  .section-title>p:last-child,
+  .tracking-copy>p,
+  .body-text{
+    font-size:15px;
+    line-height:1.5;
+  }
+
+  /* Alterações do olfato: cards compactos */
+  .condition-grid{
+    gap:10px;
+  }
+  .condition-card{
+    padding:15px 16px;
+    gap:13px;
+    border-radius:14px;
+    box-shadow:0 8px 24px rgba(25,68,108,.06);
+  }
+  .condition-symbol{
+    width:44px;
+    height:44px;
+    font-size:21px;
+  }
+  .condition-card h3{
+    font-size:17px;
+    margin-bottom:3px;
+  }
+  .condition-card p{
+    font-size:13px;
+  }
+  .statement{
+    margin-top:24px;
+    font-size:14px;
+    line-height:1.45;
+  }
+
+  /* 6 passos: cartões horizontais, numerados, muito mais compactos */
+  .mobile-steps{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .mobile-steps .step-card{
+    display:grid;
+    grid-template-columns:44px 1fr;
+    grid-template-areas:
+      "num title"
+      "num text";
+    column-gap:13px;
+    row-gap:4px;
+    padding:16px;
+    border-radius:14px;
+    box-shadow:0 8px 22px rgba(18,59,94,.05);
+  }
+  .mobile-steps .step-number{
+    grid-area:num;
+    width:42px;
+    height:42px;
+    margin:0;
+    align-self:start;
+    font-size:13px;
+  }
+  .mobile-steps .step-mark{
+    display:none;
+  }
+  .mobile-steps .step-card h3{
+    grid-area:title;
+    margin:0;
+    font-size:16px;
+    line-height:1.2;
+  }
+  .mobile-steps .step-card p{
+    grid-area:text;
+    font-size:13px;
+    line-height:1.45;
+  }
+
+  /* Evolução: reduz sensação de blocos empilhados */
+  .mobile-tracking{
+    gap:24px;
+  }
+  .tracking-items{
+    gap:9px;
+    margin-top:18px;
+  }
+  .tracking-items>div{
+    padding:10px 12px;
+    border-left:3px solid #8fc4ef;
+    background:#f8fbfe;
+    border-radius:0 10px 10px 0;
+  }
+  .tracking-items b{
+    font-size:14px;
+  }
+  .tracking-items span{
+    font-size:12px;
+    line-height:1.4;
+  }
+
+  .chart-card{
+    padding:18px;
+    border-radius:16px;
+    box-shadow:0 10px 28px rgba(21,63,103,.08);
+  }
+  .chart-head{
+    align-items:flex-start;
+    gap:10px;
+  }
+  .chart-head strong{
+    font-size:15px;
+  }
+  .chart-card small{
+    display:block;
+    margin-top:8px;
+    font-size:11px;
+    line-height:1.4;
+  }
+
+  /* Seção institucional mais leve */
+  .about-grid{
+    gap:24px;
+  }
+  .about-panel{
+    min-height:170px;
+    padding:22px;
+    border-radius:20px;
+  }
+  .about-panel img{
+    width:180px;
+  }
+  .about-panel p{
+    margin-top:14px;
+    font-size:12px;
+    text-align:center;
+  }
+
+  /* CTA final */
+  .cta{
+    padding:42px 0;
+  }
+  .cta-grid{
+    gap:18px;
+  }
+  .white-button{
+    min-width:0;
+    width:100%;
+  }
+
+  /* Rodapé bem compacto */
+  footer{
+    padding:22px 0;
+  }
+  .footer-grid{
+    gap:12px;
+  }
+  .footer-grid img{
+    width:145px;
+  }
+  .footer-grid p{
+    font-size:12px;
+    margin:0;
+  }
+  .footer-grid a{
+    font-size:11px;
+    padding:8px 11px;
+  }
+}
+
+@media(max-width:390px){
+  .brand{width:122px}
+  .mobile-patient{
+    padding:0 7px;
+    font-size:9px;
+  }
+  .hero h1{
+    font-size:31px;
+  }
+  .pillars-inline strong{
+    font-size:10px;
+  }
+}
+

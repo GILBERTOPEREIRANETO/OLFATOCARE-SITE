@@ -16,3 +16,12 @@ Ainda não apontar olfatocare.com.br até validar esta versão na Vercel.
 - Ajustes responsivos para celular sem alterar o layout desktop aprovado.
 - Cabeçalho mobile com logo, Área do paciente e menu hambúrguer.
 - Hero, cards, acompanhamento, CTA e rodapé otimizados para telas pequenas.
+
+## V2.4
+- Refinamento mobile-first baseado no PDF de visualização em celular.
+- Header mais compacto.
+- Hero reduzido e reorganizado.
+- Quatro pilares em faixa compacta.
+- Etapas 01–06 em cartões horizontais no celular.
+- Acompanhamento, CTA e rodapé com menos altura e melhor hierarquia.
+- Desktop preservado.

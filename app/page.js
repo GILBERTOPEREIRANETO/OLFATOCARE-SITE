@@ -140,7 +140,7 @@ export default function Home() {
             <p>Uma jornada estruturada, do diagnóstico ao acompanhamento da evolução.</p>
           </div>
 
-          <div className="steps-grid">
+          <div className="steps-grid mobile-steps">
             {steps.map(([n, title, text]) => (
               <article className="step-card" key={n}>
                 <span className="step-number">{n}</span>
