@@ -31,14 +31,14 @@ img{display:block;max-width:100%}
 .patient-icon{font-size:26px}
 
 .hero{background:#fff}
-.hero-grid{display:grid;grid-template-columns:.95fr 1.05fr;min-height:610px}
-.hero-copy{padding:58px 46px 54px 0;display:flex;flex-direction:column;justify-content:center}
+.hero-grid{display:grid;grid-template-columns:.92fr 1.08fr;min-height:520px}
+.hero-copy{padding:42px 42px 40px 0;display:flex;flex-direction:column;justify-content:center}
 .kicker,.eyebrow{margin:0 0 12px;color:var(--blue);font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
-.hero h1{font-size:clamp(42px,4.8vw,68px);line-height:1.02;letter-spacing:-.04em;margin:0;max-width:650px}
+.hero h1{font-size:clamp(40px,4.35vw,62px);line-height:1.02;letter-spacing:-.04em;margin:0;max-width:650px}
 .hero h1 span{display:block;color:var(--blue)}
-.short-line{width:64px;height:4px;background:#56a8e7;border-radius:10px;margin:24px 0}
+.short-line{width:64px;height:4px;background:#56a8e7;border-radius:10px;margin:18px 0}
 .hero-text{font-size:18px;color:#4e6278;max-width:650px;margin:0}
-.pillars-inline{display:grid;grid-template-columns:repeat(4,1fr);margin:28px 0 24px;max-width:680px}
+.pillars-inline{display:grid;grid-template-columns:repeat(4,1fr);margin:22px 0 20px;max-width:680px}
 .pillars-inline>div{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 18px;border-right:1px solid #d9e2ec}
 .pillars-inline>div:first-child{padding-left:0}
 .pillars-inline>div:last-child{border-right:0}
@@ -47,7 +47,7 @@ img{display:block;max-width:100%}
 .button{min-height:50px;padding:0 20px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:800}
 .primary{background:var(--blue);color:#fff}
 .secondary{border:1px solid var(--blue);color:var(--blue);background:#fff}
-.hero-photo{position:relative;min-height:610px;overflow:hidden}
+.hero-photo{position:relative;min-height:520px;overflow:hidden}
 .hero-photo::before{content:"";position:absolute;left:0;top:0;bottom:0;width:130px;background:linear-gradient(90deg,#fff,rgba(255,255,255,0));z-index:2}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
 
@@ -83,6 +83,17 @@ img{display:block;max-width:100%}
 .chart-card svg{width:100%;height:auto}
 .chart-card small{color:var(--muted)}
 
+.measurement-card{padding:34px;background:linear-gradient(145deg,#fff,#f5f9fd);border:1px solid var(--line);border-radius:22px;box-shadow:0 18px 50px rgba(21,63,103,.09)}
+.measurement-card h3{font-size:28px;line-height:1.15;margin:0 0 10px}
+.measurement-intro{color:var(--muted);margin:0 0 26px}
+.measurement-row{display:grid;grid-template-columns:46px 1fr auto auto;gap:16px;align-items:center;padding:18px 0;border-top:1px solid var(--line)}
+.measurement-icon{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px}
+.measurement-row strong,.measurement-row small{display:block}
+.measurement-row small{color:var(--muted);margin-top:3px}
+.measurement-row b{color:var(--blue);font-size:14px}
+.measurement-arrow{color:#82b9e7;font-size:24px}
+.measurement-note{margin:20px 0 0;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+
 .pillar-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .pillar-cards article{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px}
 .blue-dot{display:block;width:13px;height:13px;background:var(--blue);border-radius:50%;margin-bottom:16px}
@@ -113,7 +124,7 @@ footer{background:#052b58;color:#fff;padding:30px 0}
   .program-label,.menu{display:none}
   .hero-grid,.tracking-grid,.about-grid,.cta-grid{grid-template-columns:1fr}
   .hero-copy{padding-right:0}
-  .hero-photo{min-height:430px}
+  .hero-photo{min-height:400px}
   .condition-grid{grid-template-columns:repeat(2,1fr)}
   .steps-grid{grid-template-columns:repeat(2,1fr)}
   .pillar-cards{grid-template-columns:repeat(2,1fr)}
@@ -125,8 +136,8 @@ footer{background:#052b58;color:#fff;padding:30px 0}
   .patient-area{min-width:auto;padding:8px 10px}
   .patient-area small{display:none}
   .hero h1{font-size:42px}
-  .hero-copy{padding:50px 0 28px}
-  .hero-photo{min-height:360px}
+  .hero-copy{padding:38px 0 28px}
+  .hero-photo{min-height:330px}
   .pillars-inline{grid-template-columns:repeat(2,1fr);gap:20px}
   .pillars-inline>div{border-right:0}
   .hero-actions{flex-direction:column}
@@ -134,5 +145,8 @@ footer{background:#052b58;color:#fff;padding:30px 0}
   .section{padding:62px 0}
   .condition-grid,.steps-grid,.pillar-cards{grid-template-columns:1fr}
   .condition-card{align-items:flex-start}
+  .measurement-card{padding:24px}
+  .measurement-row{grid-template-columns:42px 1fr}
+  .measurement-arrow,.measurement-row>b{display:none}
   .footer-grid{grid-template-columns:1fr}
 }

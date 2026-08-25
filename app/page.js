@@ -53,8 +53,8 @@ export default function Home() {
           <div className="hero-copy">
             <p className="kicker">Seu olfato mudou?</p>
             <h1>
-              Nós ajudamos a entender por quê —
-              <span> e o que pode ser feito.</span>
+              Nós ajudamos a entender por quê
+              <span>— e o que pode ser feito.</span>
             </h1>
             <div className="short-line" />
             <p className="hero-text">
@@ -151,43 +151,26 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="chart-card">
-            <div className="chart-head">
-              <strong>Exemplo de evolução</strong>
-              <span>90 dias</span>
+          <div className="measurement-card">
+            <p className="eyebrow">Acompanhamento estruturado</p>
+            <h3>Comparar o início com a evolução.</h3>
+            <p className="measurement-intro">
+              Os resultados podem ser registrados ao longo do cuidado para apoiar decisões clínicas, sem pressupor uma evolução igual para todos.
+            </p>
+            <div className="measurement-row">
+              <span className="measurement-icon">01</span>
+              <div><strong>Teste olfatório</strong><small>Mensuração objetiva inicial e reavaliação quando indicada.</small></div>
+              <span className="measurement-arrow">→</span>
+              <b>Comparar</b>
             </div>
-            <svg viewBox="0 0 620 300" role="img" aria-label="Exemplo ilustrativo de evolução">
-              {[65,120,175,230].map((y) => (
-                <line key={y} x1="54" y1={y} x2="584" y2={y} stroke="#e7edf4" />
-              ))}
-              <polyline points="70,86 230,128 395,178 555,220" fill="none" stroke="#0d57ad" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-              {[
-                [70,86,"78","Início"],
-                [230,128,"62","30 dias"],
-                [395,178,"41","60 dias"],
-                [555,220,"24","90 dias"]
-              ].map(([x,y,val,label]) => (
-                <g key={label}>
-                  <circle cx={x} cy={y} r="7" fill="#0d57ad" />
-                  <text x={x} y={y-14} textAnchor="middle" fontWeight="700" fill="#12304d">{val}</text>
-                  <text x={x} y="272" textAnchor="middle" fontSize="12" fill="#6e7f91">{label}</text>
-                </g>
-              ))}
-            </svg>
-            <small>* Exemplo ilustrativo. A evolução varia de pessoa para pessoa.</small>
+            <div className="measurement-row">
+              <span className="measurement-icon">02</span>
+              <div><strong>SNOT-22</strong><small>Registro do impacto dos sintomas e da qualidade de vida ao longo do tempo.</small></div>
+              <span className="measurement-arrow">→</span>
+              <b>Acompanhar</b>
+            </div>
+            <p className="measurement-note">Cada evolução é individual. Os dados ajudam a orientar os próximos passos.</p>
           </div>
-        </div>
-      </section>
-
-      <section className="section soft">
-        <div className="container pillar-cards">
-          {pillars.map(([title, text]) => (
-            <article key={title}>
-              <span className="blue-dot" />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
         </div>
       </section>
 
@@ -198,14 +181,13 @@ export default function Home() {
             <p>Avaliar. Medir. Tratar. Acompanhar.</p>
           </div>
           <div>
-            <p className="eyebrow">Quem está por trás do Olfato Care</p>
+            <p className="eyebrow">Ciência e cuidado estruturado</p>
             <h2>Medicina, ciência e acompanhamento individualizado.</h2>
             <p className="body-text">
               O Olfato Care foi desenvolvido para oferecer uma abordagem estruturada às
-              alterações do olfato, integrando avaliação médica, mensuração objetiva,
-              investigação complementar, tratamento e acompanhamento da evolução.
+              alterações do olfato, integrando avaliação médica, mensuração objetiva da função olfatória,
+              investigação complementar, tratamento individualizado e acompanhamento da evolução.
             </p>
-            <p className="doctor"><strong>Dr. Gilberto Luiz Pereira da Silva Neto</strong><br/>Médico otorrinolaringologista</p>
           </div>
         </div>
       </section>
