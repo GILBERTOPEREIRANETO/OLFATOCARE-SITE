@@ -153,44 +153,51 @@ export default function Home() {
         </div>
       </section>
 
+      
       <section className="section" id="acompanhamento">
-        <div className="container tracking-grid">
-          <div className="tracking-copy">
+        <div className="container evolution-single">
+          <div className="section-title evolution-title">
             <p className="eyebrow">Evolução que se mede</p>
-            <h2>Sua percepção importa. E nós também medimos a evolução.</h2>
+            <h2>Sua evolução é acompanhada com dados.</h2>
             <p>
-              Combinamos a percepção do paciente com instrumentos estruturados de acompanhamento e avaliações objetivas da função olfatória.
+              A percepção do paciente é importante, mas não precisa ser a única referência.
+              Durante o acompanhamento, combinamos instrumentos estruturados e avaliações
+              objetivas para observar a evolução ao longo do cuidado.
             </p>
-
-            <div className="tracking-items">
-              <div><b>Teste olfatório</b><span>Avaliação objetiva da função olfatória.</span></div>
-              <div><b>SNOT-22</b><span>Acompanhamento do impacto dos sintomas nasossinusais e na qualidade de vida.</span></div>
-              <div><b>Histórico de evolução</b><span>Resultados registrados ao longo do tempo para facilitar comparações.</span></div>
-            </div>
           </div>
 
-          <div className="measurement-card">
-            <p className="eyebrow">Acompanhamento estruturado</p>
-            <h3>Acompanhar a evolução com dados.</h3>
-            <p className="measurement-intro">
-              Os resultados podem ser registrados ao longo do cuidado para apoiar decisões clínicas, sem pressupor uma evolução igual para todos.
-            </p>
-            <div className="measurement-row">
-              <span className="measurement-icon">01</span>
-              <div><strong>Teste olfatório</strong><small>Mensuração objetiva inicial e reavaliação quando indicada.</small></div>
-              <span className="measurement-arrow">→</span>
-              <b>Comparar</b>
-            </div>
-            <div className="measurement-row">
-              <span className="measurement-icon">02</span>
-              <div><strong>SNOT-22</strong><small>Registro do impacto dos sintomas e da qualidade de vida ao longo do tempo.</small></div>
-              <span className="measurement-arrow">→</span>
-              <b>Acompanhar</b>
-            </div>
-            <p className="measurement-note">Cada evolução é individual. Os dados ajudam a orientar os próximos passos.</p>
+          <div className="evolution-tools">
+            <article>
+              <span className="tool-icon">01</span>
+              <div>
+                <h3>Teste olfatório</h3>
+                <p>Mensuração objetiva da função olfatória e reavaliação quando indicada.</p>
+              </div>
+            </article>
+
+            <article>
+              <span className="tool-icon">02</span>
+              <div>
+                <h3>SNOT-22</h3>
+                <p>Acompanhamento do impacto dos sintomas nasossinusais e da qualidade de vida.</p>
+              </div>
+            </article>
+
+            <article>
+              <span className="tool-icon">03</span>
+              <div>
+                <h3>Histórico de evolução</h3>
+                <p>Comparação dos resultados registrados ao longo do tratamento.</p>
+              </div>
+            </article>
           </div>
+
+          <p className="evolution-note">
+            Cada evolução é individual. Os dados ajudam a orientar decisões clínicas e os próximos passos.
+          </p>
         </div>
       </section>
+
 
       <section className="section" id="sobre">
         <div className="container about-grid">

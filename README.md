@@ -25,3 +25,10 @@ Ainda não apontar olfatocare.com.br até validar esta versão na Vercel.
 - Etapas 01–06 em cartões horizontais no celular.
 - Acompanhamento, CTA e rodapé com menos altura e melhor hierarquia.
 - Desktop preservado.
+
+## V2.5
+- Unificação do acompanhamento em uma única seção.
+- Nova mensagem: 'Sua evolução é acompanhada com dados.'
+- Teste olfatório, SNOT-22 e histórico de evolução em três blocos compactos.
+- Remoção da repetição visual e textual no meio da página.
+- Desktop e demais seções preservados.
