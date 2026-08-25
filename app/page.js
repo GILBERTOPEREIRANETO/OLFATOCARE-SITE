@@ -138,10 +138,9 @@ export default function Home() {
         <div className="container tracking-grid">
           <div className="tracking-copy">
             <p className="eyebrow">Evolução que se mede</p>
-            <h2>Não queremos apenas saber se você “acha que melhorou”.</h2>
+            <h2>Sua percepção importa. E nós também medimos a evolução.</h2>
             <p>
-              A percepção do paciente é essencial, mas pode ser combinada com
-              instrumentos estruturados de acompanhamento e avaliações objetivas da função olfatória.
+              Combinamos a percepção do paciente com instrumentos estruturados de acompanhamento e avaliações objetivas da função olfatória.
             </p>
 
             <div className="tracking-items">
@@ -153,7 +152,7 @@ export default function Home() {
 
           <div className="measurement-card">
             <p className="eyebrow">Acompanhamento estruturado</p>
-            <h3>Comparar o início com a evolução.</h3>
+            <h3>Acompanhar a evolução com dados.</h3>
             <p className="measurement-intro">
               Os resultados podem ser registrados ao longo do cuidado para apoiar decisões clínicas, sem pressupor uma evolução igual para todos.
             </p>
