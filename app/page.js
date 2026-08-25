@@ -41,10 +41,29 @@ export default function Home() {
             <a href="#sobre">Sobre</a>
           </nav>
 
-          <a className="patient-area" href="https://snot-22.olfatocare.com.br">
+          <a className="patient-area desktop-patient" href="https://snot-22.olfatocare.com.br">
             <span className="patient-icon">◯</span>
             <span><strong>Área do paciente</strong><small>Acesse seu acompanhamento</small></span>
           </a>
+
+          <div className="mobile-actions">
+            <a className="mobile-patient" href="https://snot-22.olfatocare.com.br">
+              Área do paciente
+            </a>
+
+            <details className="mobile-menu">
+              <summary aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+              </summary>
+              <nav>
+                <a href="#alteracoes">Alterações do olfato</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#acompanhamento">Acompanhamento</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato">Agendar avaliação</a>
+              </nav>
+            </details>
+          </div>
         </div>
       </header>
 

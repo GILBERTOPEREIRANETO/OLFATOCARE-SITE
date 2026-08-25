@@ -11,3 +11,8 @@ Principais ajustes:
 - acesso ao SNOT-22 mantido em snot-22.olfatocare.com.br.
 
 Ainda não apontar olfatocare.com.br até validar esta versão na Vercel.
+
+## V2.3
+- Ajustes responsivos para celular sem alterar o layout desktop aprovado.
+- Cabeçalho mobile com logo, Área do paciente e menu hambúrguer.
+- Hero, cards, acompanhamento, CTA e rodapé otimizados para telas pequenas.

@@ -150,3 +150,206 @@ footer{background:#052b58;color:#fff;padding:30px 0}
   .measurement-arrow,.measurement-row>b{display:none}
   .footer-grid{grid-template-columns:1fr}
 }
+
+/* ===== V2.3: responsividade mobile sem alterar o desktop ===== */
+.mobile-actions{display:none}
+
+@media(max-width:1020px){
+  .desktop-patient{display:none}
+  .mobile-actions{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .mobile-patient{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:42px;
+    padding:0 13px;
+    border:1px solid rgba(255,255,255,.55);
+    border-radius:9px;
+    color:#fff;
+    font-size:12px;
+    font-weight:800;
+    white-space:nowrap;
+  }
+  .mobile-menu{position:relative}
+  .mobile-menu summary{
+    width:42px;
+    height:42px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    padding:0 10px;
+    border:1px solid rgba(255,255,255,.55);
+    border-radius:9px;
+    cursor:pointer;
+    list-style:none;
+  }
+  .mobile-menu summary::-webkit-details-marker{display:none}
+  .mobile-menu summary span{
+    display:block;
+    width:100%;
+    height:2px;
+    border-radius:2px;
+    background:#fff;
+  }
+  .mobile-menu nav{
+    position:absolute;
+    top:50px;
+    right:0;
+    min-width:250px;
+    padding:10px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 18px 50px rgba(8,47,99,.18);
+  }
+  .mobile-menu nav a{
+    display:block;
+    padding:12px 13px;
+    border-radius:9px;
+    color:var(--ink);
+    font-size:14px;
+    font-weight:700;
+  }
+  .mobile-menu nav a:hover{background:#f2f6fa;color:var(--blue)}
+}
+
+@media(max-width:650px){
+  body{overflow-x:hidden}
+  .site-header{position:sticky;top:0}
+  .nav{
+    min-height:70px;
+    gap:10px;
+  }
+  .brand{width:145px}
+  .mobile-actions{gap:7px}
+  .mobile-patient{
+    min-height:38px;
+    padding:0 10px;
+    font-size:11px;
+  }
+  .mobile-menu summary{
+    width:38px;
+    height:38px;
+    padding:0 9px;
+  }
+
+  .hero-grid{display:block}
+  .hero-copy{
+    padding:42px 0 26px;
+  }
+  .hero h1{
+    font-size:clamp(36px,11vw,46px);
+    line-height:1.03;
+    max-width:none;
+  }
+  .kicker,.eyebrow{
+    font-size:12px;
+    letter-spacing:.07em;
+  }
+  .short-line{margin:18px 0}
+  .hero-text{
+    font-size:16px;
+    line-height:1.5;
+  }
+  .pillars-inline{
+    grid-template-columns:repeat(2,1fr);
+    gap:16px 0;
+    margin:24px 0 22px;
+  }
+  .pillars-inline>div{
+    padding:0 10px;
+  }
+  .pillars-inline>div:nth-child(odd){
+    border-right:1px solid #d9e2ec;
+  }
+  .pillar-icon{font-size:22px}
+  .hero-photo{
+    min-height:330px;
+    margin:0 -14px;
+    border-radius:0;
+  }
+  .hero-photo::before{
+    left:0;
+    top:0;
+    right:0;
+    bottom:auto;
+    width:auto;
+    height:70px;
+    background:linear-gradient(180deg,#fff,rgba(255,255,255,0));
+  }
+  .hero-photo img{
+    object-position:center 34%;
+  }
+
+  .section-title h2,.tracking-copy h2,.about-grid h2,.cta h2{
+    font-size:clamp(28px,8vw,36px);
+  }
+  .section-title>p:last-child,
+  .tracking-copy>p,
+  .body-text{
+    font-size:16px;
+  }
+
+  .condition-card{
+    padding:20px;
+  }
+  .condition-symbol{
+    width:52px;
+    height:52px;
+    font-size:24px;
+  }
+
+  .step-card{
+    padding:22px;
+  }
+
+  .tracking-grid{
+    gap:34px;
+  }
+  .tracking-items>div{
+    padding-left:12px;
+  }
+
+  .about-panel{
+    min-height:220px;
+    padding:28px;
+  }
+  .about-panel img{
+    width:215px;
+  }
+
+  .cta{
+    padding:48px 0;
+  }
+  .cta-grid{
+    gap:22px;
+  }
+
+  footer{
+    padding:26px 0;
+  }
+  .footer-grid{
+    gap:16px;
+    text-align:left;
+  }
+  .footer-grid img{
+    width:160px;
+  }
+  .footer-grid a{
+    width:max-content;
+  }
+}
+
+@media(max-width:390px){
+  .brand{width:132px}
+  .mobile-patient{font-size:10px;padding:0 8px}
+  .hero h1{font-size:34px}
+  .container{width:min(100% - 22px,1260px)}
+}
+
