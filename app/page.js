@@ -41,13 +41,13 @@ export default function Home() {
             <a href="#sobre">Sobre</a>
           </nav>
 
-          <a className="patient-area desktop-patient" href="https://snot-22.olfatocare.com.br">
+          <a className="patient-area desktop-patient" href="/paciente">
             <span className="patient-icon">◯</span>
-            <span><strong>Área do paciente</strong><small>Acesse seu acompanhamento</small></span>
+            <span><strong>Área do paciente</strong><small>Avaliações e resultados</small></span>
           </a>
 
           <div className="mobile-actions">
-            <a className="mobile-patient" href="https://snot-22.olfatocare.com.br">
+            <a className="mobile-patient" href="/paciente">
               Área do paciente
             </a>
 
@@ -70,7 +70,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="kicker">Seu olfato mudou?</p>
+            <p className="kicker hero-question">Seu olfato mudou?</p>
             <h1>
               Nós ajudamos a entender por quê
               <span>— e o que pode ser feito.</span>
@@ -91,7 +91,7 @@ export default function Home() {
             </div>
 
             <div className="hero-actions">
-              <a className="button primary" href="#contato">Agende sua avaliação</a>
+              <a className="button primary" href="/agendar">Agende sua avaliação</a>
               <a className="button secondary" href="#como-funciona">Como funciona o programa</a>
             </div>
           </div>
@@ -224,7 +224,7 @@ export default function Home() {
             <h2>O primeiro passo é descobrir o que está acontecendo.</h2>
             <p>A indicação e o tratamento são definidos individualmente após avaliação médica.</p>
           </div>
-          <a className="button white-button" href="#">Agendar uma avaliação</a>
+          <a className="button white-button" href="/agendar">Agendar uma avaliação</a>
         </div>
       </section>
 
@@ -232,7 +232,7 @@ export default function Home() {
         <div className="container footer-grid">
           <img src="/olfato-care-logo-white.png" alt="Olfato Care" />
           <p>Avaliar. Medir. Tratar. Acompanhar.</p>
-          <a href="https://snot-22.olfatocare.com.br">Área do paciente</a>
+          <a href="/paciente">Área do paciente</a>
         </div>
       </footer>
     </main>

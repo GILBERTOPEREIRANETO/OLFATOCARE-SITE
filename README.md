@@ -32,3 +32,11 @@ Ainda não apontar olfatocare.com.br até validar esta versão na Vercel.
 - Teste olfatório, SNOT-22 e histórico de evolução em três blocos compactos.
 - Remoção da repetição visual e textual no meio da página.
 - Desktop e demais seções preservados.
+
+## V2.6
+- Maior destaque para 'Seu olfato mudou?'.
+- Área do paciente interna em /paciente.
+- Módulos SNOT-22 e Meu Teste de Olfato.
+- Página /agendar com seleção de cidade e clínica credenciada.
+- Jundiaí / OTO.COM configurados.
+- Página /profissionais para futura rede de parceiros otorrinolaringologistas.
