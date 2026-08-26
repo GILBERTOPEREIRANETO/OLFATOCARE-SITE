@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Credenciamento de profissionais | Olfato Care",
-  description: "Conheça o credenciamento de otorrinolaringologistas parceiros Olfato Care."
+  title: "Profissionais | Olfato Care",
+  description: "Acesse o painel profissional ou conheça o credenciamento de parceiros Olfato Care."
 };
 
 export default function Profissionais() {
@@ -14,25 +14,45 @@ export default function Profissionais() {
       </header>
 
       <section className="portal-hero">
-        <div className="portal-container narrow">
-          <p className="eyebrow">Credenciamento de parceiros</p>
-          <h1>Olfato Care para otorrinolaringologistas.</h1>
+        <div className="portal-container">
+          <p className="eyebrow">Área profissional</p>
+          <h1>Olfato Care para profissionais.</h1>
           <p>
-            Estamos estruturando uma rede de profissionais parceiros para ampliar o acesso
-            à avaliação e ao acompanhamento das alterações do olfato em diferentes cidades.
+            Uma estrutura especializada para avaliação e acompanhamento das alterações do olfato,
+            conectando pacientes, profissionais e unidades credenciadas.
           </p>
 
-          <div className="professional-card">
-            <h2>Quem pode ter interesse?</h2>
-            <p>Otorrinolaringologistas e clínicas que desejem incorporar uma jornada estruturada de avaliação, mensuração e acompanhamento da função olfatória.</p>
+          <div className="portal-grid professional-options">
+            <article className="portal-card professional-option-card">
+              <span className="portal-number">01</span>
+              <h2>Painel profissional</h2>
+              <p>
+                Localize pacientes, consulte o histórico de testes e libere novas avaliações olfatórias.
+              </p>
+              <a
+                className="portal-button"
+                href="https://olfatocare-teste.vercel.app/equipe"
+              >
+                Acessar painel profissional
+              </a>
+            </article>
 
-            <h2>O que estamos desenvolvendo?</h2>
-            <p>Padronização da jornada Olfato Care, ferramentas digitais, acompanhamento de resultados e integração com profissionais locais.</p>
+            <article className="portal-card professional-option-card">
+              <span className="portal-number">02</span>
+              <h2>Seja um profissional parceiro</h2>
+              <p>
+                Faça parte da rede Olfato Care e ofereça avaliação e acompanhamento especializado em sua região.
+              </p>
+              <div className="professional-interest">
+                <strong>Credenciamento em preparação</strong>
+                <span>Em breve disponibilizaremos o cadastro de interesse para novos parceiros.</span>
+              </div>
+            </article>
+          </div>
 
-            <div className="coming-soon-box">
-              <strong>Cadastro de interesse</strong>
-              <span>O formulário de credenciamento será disponibilizado em breve.</span>
-            </div>
+          <div className="professional-note">
+            <strong>O painel profissional é de uso restrito.</strong>
+            <span>O acesso depende de cadastro e permissão previamente liberados pela equipe Olfato Care.</span>
           </div>
         </div>
       </section>

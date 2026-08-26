@@ -39,6 +39,7 @@ export default function Home() {
             <a href="#como-funciona">Como funciona</a>
             <a href="#acompanhamento">Acompanhamento</a>
             <a href="#sobre">Sobre</a>
+            <a href="/profissionais">Profissionais</a>
           </nav>
 
           <a className="patient-area desktop-patient" href="/paciente">
@@ -60,6 +61,7 @@ export default function Home() {
                 <a href="#como-funciona">Como funciona</a>
                 <a href="#acompanhamento">Acompanhamento</a>
                 <a href="#sobre">Sobre</a>
+                <a href="/profissionais">Profissionais</a>
                 <a href="#contato">Agendar avaliação</a>
               </nav>
             </details>

@@ -799,3 +799,27 @@ footer{background:#052b58;color:#fff;padding:30px 0}
   .partner-box h2{font-size:25px}
 }
 
+
+
+/* ===== V2.7: entrada profissional no site institucional ===== */
+.professional-options{align-items:stretch}
+.professional-option-card{display:flex;flex-direction:column}
+.professional-option-card p{flex:1}
+.professional-interest{
+  min-height:48px;padding:14px 16px;border-radius:9px;
+  background:#eef5fc;border:1px solid #d9e8f6;
+  display:flex;flex-direction:column;justify-content:center;gap:3px;
+  color:var(--navy);
+}
+.professional-interest span{color:var(--muted);font-size:13px;line-height:1.45}
+.professional-note{
+  margin-top:24px;padding:18px 20px;border-radius:14px;
+  background:#fff;border:1px solid var(--line);
+  display:flex;flex-direction:column;gap:4px;
+}
+.professional-note strong{color:var(--navy)}
+.professional-note span{color:var(--muted);font-size:14px}
+
+@media(max-width:700px){
+  .professional-option-card .portal-button{width:100%}
+}
