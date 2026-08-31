@@ -36,7 +36,6 @@ export default function Profissionais() {
 >
   Acessar painel profissional
 </a>
-              </a>
             </article>
 
             <article className="portal-card professional-option-card">
