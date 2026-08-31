@@ -27,13 +27,15 @@ export default function Profissionais() {
               <span className="portal-number">01</span>
               <h2>Painel profissional</h2>
               <p>
-                Localize pacientes, consulte o histórico de testes e libere novas avaliações olfatórias.
-              </p>
-              <a
-                className="portal-button"
-                href="https://olfatocare-teste.vercel.app/equipe"
-              >
-                Acessar painel profissional
+                 Localize pacientes, consulte o histórico de testes e libere novas avaliações olfatórias.
+</p>
+
+<a
+  className="portal-button"
+  href="https://teste.olfatocare.com.br/equipe"
+>
+  Acessar painel profissional
+</a>
               </a>
             </article>
 
