@@ -29,12 +29,17 @@ export default function Paciente() {
               </a>
             </article>
 
-            <article className="portal-card">
-              <span className="portal-number">02</span>
-              <h2>Meu Teste de Olfato</h2>
-              <p>Consulte seus testes olfatórios, resultados anteriores e evolução.</p>
-              <span className="portal-button disabled">Em breve</span>
-            </article>
+<article className="portal-card">
+  <span className="portal-number">02</span>
+  <h2>Meu Teste de Olfato</h2>
+  <p>Consulte seus testes olfatórios, resultados anteriores e evolução.</p>
+  <a
+    href="https://teste.olfatocare.com.br"
+    className="portal-button"
+  >
+    Acessar Teste de Olfato
+  </a>
+</article>
           </div>
         </div>
       </section>
