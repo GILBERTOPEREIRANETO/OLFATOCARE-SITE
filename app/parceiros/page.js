@@ -56,11 +56,15 @@ export default function ParceirosPage() {
 
     setLoading(false);
 
-    if (error) {
-      console.error("Erro ao registrar interesse:", error);
-      setMessage("Não foi possível enviar seu cadastro agora. Tente novamente em alguns instantes.");
-      return;
-    }
+   if (error) {
+  console.error("Erro ao registrar interesse:", error);
+
+  setMessage(
+    `Erro Supabase: ${error.message || "erro desconhecido"}`
+  );
+
+  return;
+}
 
     setDone(true);
   }
