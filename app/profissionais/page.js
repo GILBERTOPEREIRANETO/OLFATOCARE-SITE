@@ -40,14 +40,13 @@ export default function Profissionais() {
 
             <article className="portal-card professional-option-card">
               <span className="portal-number">02</span>
-              <h2>Seja um profissional parceiro</h2>
+              <h2>Seja uma clínica parceira</h2>
               <p>
-                Faça parte da rede Olfato Care e ofereça avaliação e acompanhamento especializado em sua região.
+                Faça parte da futura rede credenciada Olfato Care e leve avaliação e acompanhamento especializado do olfato para sua região.
               </p>
-              <div className="professional-interest">
-                <strong>Credenciamento em preparação</strong>
-                <span>Em breve disponibilizaremos o cadastro de interesse para novos parceiros.</span>
-              </div>
+              <a className="portal-button" href="/parceiros">
+                Cadastrar interesse
+              </a>
             </article>
           </div>
 
