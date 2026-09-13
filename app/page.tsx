@@ -1,106 +1,110 @@
-import { CalendarDays, FileText, MapPin, Phone, ArrowRight, MessageCircle } from 'lucide-react'
+'use client';
 
-const RESULT_URL = 'https://laudos.institutodosonojundiai.com.br/paciente'
-const PHONE_DISPLAY = '(11) 4522-1700'
-const PHONE_WA = '551145221700'
-const ADDRESS = 'Rua Major Gustavo Adolfo Storch, 125, Sala 101, Vila Virgínia, Jundiaí - SP, 13209-080'
+import { FormEvent, useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { createClient } from '@/lib/supabase/client';
 
-function Logo({ footer = false }: { footer?: boolean }) {
-  return (
-    <img
-      className={footer ? 'official-logo official-logo-footer' : 'official-logo'}
-      src="/logo-isj-moss.png"
-      alt="Instituto do Sono Jundiaí"
-    />
-  )
+type Profile = { role: 'admin'|'reception'|'polysomnography_technician'|'technician'|'doctor'|'pending'; active: boolean };
+
+function destination(profile: Profile) {
+  if (!profile.active || profile.role === 'pending') return null;
+  if (profile.role === 'admin') return '/admin';
+  if (profile.role === 'reception') return '/recepcao';
+  if (profile.role === 'polysomnography_technician') return '/polissonografia';
+  if (profile.role === 'technician') return '/tecnica';
+  if (profile.role === 'doctor') return '/medico';
+  return null;
 }
 
 export default function Home() {
-  const whatsapp = `https://wa.me/${PHONE_WA}?text=${encodeURIComponent('Olá! Gostaria de agendar um exame no Instituto do Sono Jundiaí.')}`
-  const maps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`
+  const router = useRouter();
+  const [loginEmail,setLoginEmail] = useState('');
+  const [loginPassword,setLoginPassword] = useState('');
+  const [loginMsg,setLoginMsg] = useState('');
+  const [signupMsg,setSignupMsg] = useState('');
+  const [busy,setBusy] = useState(false);
+  const [showSignup,setShowSignup] = useState(false);
 
-  return (
-    <main>
-      <section className="hero-shell">
-        <div className="topbar">
-          <Logo />
-          <div className="tagline">Sono hoje.<br/>Mais vida amanhã.</div>
-        </div>
+  useEffect(() => {
+    async function existingSession() {
+      const supabase = createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+      const { data } = await supabase.from('profiles').select('role,active').eq('id',user.id).single();
+      if (!data) return;
+      const target = destination(data as Profile);
+      if (target) router.replace(target);
+    }
+    existingSession();
+  }, [router]);
 
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">INSTITUTO DO SONO JUNDIAÍ</p>
-            <h1>Seu sono<br/>em boas mãos</h1>
-            <p className="lead">Diagnóstico preciso e acompanhamento especializado para uma vida mais saudável.</p>
+  async function login(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault(); setBusy(true); setLoginMsg('');
+    const supabase = createClient();
+    const { error } = await supabase.auth.signInWithPassword({email:loginEmail,password:loginPassword});
+    if (error) { setLoginMsg('E-mail ou senha inválidos.'); setBusy(false); return; }
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) { setLoginMsg('Não foi possível abrir a sessão.'); setBusy(false); return; }
+    const { data: profile } = await supabase.from('profiles').select('role,active').eq('id',user.id).single();
+    if (!profile) { setLoginMsg('Conta sem perfil cadastrado. Fale com o administrador.'); setBusy(false); return; }
+    const target = destination(profile as Profile);
+    if (!target) {
+      setLoginMsg('Seu cadastro ainda está aguardando aprovação do administrador.');
+      await supabase.auth.signOut();
+      setBusy(false); return;
+    }
+    router.push(target);
+  }
 
-            <div className="cta-grid">
-              <a className="cta cta-primary" href={whatsapp} target="_blank" rel="noreferrer">
-                <CalendarDays size={30} strokeWidth={1.8}/>
-                <span>
-                  <strong>Agendar meu exame</strong>
-                  <small>Fale com nossa equipe pelo WhatsApp.</small>
-                </span>
-                <ArrowRight size={28} />
-              </a>
+  async function signup(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault(); setBusy(true); setSignupMsg('');
+    const form = new FormData(e.currentTarget);
+    const fullName = String(form.get('full_name') || '').trim();
+    const email = String(form.get('email') || '').trim();
+    const password = String(form.get('password') || '');
+    const requestedRole = String(form.get('requested_role') || '');
+    const crm = String(form.get('crm') || '').trim();
+    if (!fullName || !email || password.length < 8 || !['reception','polysomnography_technician','technician','doctor'].includes(requestedRole)) {
+      setSignupMsg('Preencha todos os campos. A senha deve ter pelo menos 8 caracteres.'); setBusy(false); return;
+    }
+    const supabase = createClient();
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { data: { full_name: fullName, requested_role: requestedRole, crm } },
+    });
+    if (error) { setSignupMsg(error.message); setBusy(false); return; }
+    setSignupMsg('Cadastro recebido. Se o Supabase solicitar confirmação de e-mail, confirme-o. O acesso só será liberado após aprovação do administrador.');
+    (e.currentTarget as HTMLFormElement).reset();
+    setBusy(false);
+  }
 
-              <a className="cta cta-secondary" href={RESULT_URL}>
-                <FileText size={30} strokeWidth={1.8}/>
-                <span>
-                  <strong>Acessar meu resultado</strong>
-                  <small>Consulte seu laudo de forma segura e rápida.</small>
-                </span>
-                <ArrowRight size={28} />
-              </a>
-            </div>
-          </div>
-
-          <div className="hero-photo" role="img" aria-label="Pessoa dormindo tranquilamente">
-            <div className="soft-overlay" />
-          </div>
-        </div>
+  return <main className="auth-shell">
+    <div className="auth-head"><img className="isj-logo isj-logo-home" src="/isj-logo.png" alt="Instituto do Sono Jundiaí"/><div className="muted">Sistema de laudos de polissonografia</div></div>
+    <Link href="/paciente" className="patient-hero">PACIENTE — ACESSE SEU RESULTADO</Link>
+    <div className="auth-grid single-login">
+      <section className="card"><h2 className="section-title">Acesso da equipe</h2>
+        <form onSubmit={login}>
+          <div className="field"><label>E-mail</label><input className="input" type="email" required value={loginEmail} onChange={e=>setLoginEmail(e.target.value)}/></div>
+          <div className="field"><label>Senha</label><input className="input" type="password" required value={loginPassword} onChange={e=>setLoginPassword(e.target.value)}/></div>
+          {loginMsg && <div className="message error">{loginMsg}</div>}
+          <button className="btn primary" style={{width:'100%'}} disabled={busy}>Entrar</button>
+        </form>
+        <p className="muted" style={{fontSize:13,marginTop:16}}>Acesso individual da equipe autorizada.</p>
       </section>
-
-      <section className="quote-section">
-        <div className="quote-line" />
-        <p>Dormir bem é viver melhor.</p>
-        <div className="quote-line" />
-      </section>
-
-      <section className="contact-strip">
-        <a className="contact-card" href={whatsapp} target="_blank" rel="noreferrer">
-          <div className="contact-icon"><Phone size={28}/></div>
-          <div>
-            <h2>Agendamentos</h2>
-            <strong>{PHONE_DISPLAY}</strong>
-            <p>Atendimento pelo telefone ou WhatsApp.</p>
-          </div>
-          <MessageCircle size={24}/>
-        </a>
-
-        <a className="contact-card" href={maps} target="_blank" rel="noreferrer">
-          <div className="contact-icon"><MapPin size={28}/></div>
-          <div>
-            <h2>Endereço</h2>
-            <strong>Rua Major Gustavo Adolfo Storch, 125</strong>
-            <p>Sala 101 • Vila Virgínia • Jundiaí/SP • CEP 13209-080</p>
-          </div>
-        </a>
-
-        <a className="contact-card" href={RESULT_URL}>
-          <div className="contact-icon"><FileText size={28}/></div>
-          <div>
-            <h2>Resultado do exame</h2>
-            <strong>Acesso online</strong>
-            <p>Use o código entregue no protocolo para consultar seu laudo.</p>
-          </div>
-        </a>
-      </section>
-
-      <footer className="footer">
-        <div className="footer-logo"><Logo footer /></div>
-        <div className="footer-copy">Qualidade de sono para uma vida melhor.</div>
-        <div className="footer-meta">© 2026 Instituto do Sono Jundiaí.<br/>Todos os direitos reservados.</div>
-      </footer>
-    </main>
-  )
+    </div>
+    <div className="professional-toggle"><button className="link-button" onClick={()=>setShowSignup(!showSignup)}>Solicitar acesso profissional</button></div>
+    {showSignup&&<section className="card signup-card"><h2 className="section-title">Solicitar acesso profissional</h2>
+      <form onSubmit={signup} className="form-grid">
+        <div className="field"><label>Nome completo</label><input className="input" name="full_name" required/></div>
+        <div className="field"><label>E-mail</label><input className="input" name="email" type="email" required/></div>
+        <div className="field"><label>Função</label><select className="select" name="requested_role" required defaultValue=""><option value="" disabled>Selecione</option><option value="reception">Recepção</option><option value="polysomnography_technician">Técnica de Polissonografia</option><option value="technician">Laudadora</option><option value="doctor">Médico</option></select></div>
+        <div className="field"><label>CRM (somente médico)</label><input className="input" name="crm"/></div>
+        <div className="field full"><label>Crie uma senha</label><input className="input" name="password" type="password" minLength={8} required/></div>
+        {signupMsg && <div className="message ok full">{signupMsg}</div>}
+        <button className="btn full" disabled={busy}>Enviar solicitação</button>
+      </form>
+    </section>}
+  </main>;
 }
